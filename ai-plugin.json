@@ -1,0 +1,12 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "GitHub Workflow Connector",
+  "name_for_model": "github_workflow_connector",
+  "description_for_human": "Dispare e monitore workflows do GitHub no repositório caiomarcal/Caiogit.",
+  "description_for_model": "Plugin para listar e disparar GitHub Actions no repositório caiomarcal/Caiogit.",
+  "auth": { "type": "service_http", "authorization_type": "bearer" },
+  "api": { "type": "openapi", "url": "https://REPLACE_ME/openapi.yaml" },
+  "logo_url": "https://REPLACE_ME/logo.png",
+  "contact_email": "you@example.com",
+  "legal_info_url": "https://REPLACE_ME/legal"
+}
