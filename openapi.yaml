@@ -1,0 +1,41 @@
+openapi: 3.0.1
+info:
+  title: GitHub Workflow Connector
+  description: Trigger GitHub Actions workflows and list statuses for the repository caiomarcal/Caiogit.
+  version: "1.0.0"
+servers:
+  - url: https://REPLACE_ME
+paths:
+  /workflows:
+    get:
+      summary: List workflows
+      operationId: listWorkflows
+      responses:
+        "200":
+          description: Workflows list
+          content:
+            application/json:
+              schema: { type: object }
+  /workflows/{workflow_id}/dispatch:
+    post:
+      summary: Trigger workflow
+      operationId: triggerWorkflow
+      parameters:
+        - name: workflow_id
+          in: path
+          required: true
+          schema: { type: integer }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: { ref: { type: string } }
+      responses:
+        "204": { description: Triggered }
+components:
+  securitySchemes:
+    bearerAuth: { type: http, scheme: bearer, bearerFormat: JWT }
+security:
+  - bearerAuth: []
