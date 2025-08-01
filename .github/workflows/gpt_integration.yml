@@ -1,0 +1,21 @@
+name: Integrate GPT
+on:
+  push:
+    branches:
+      - main  # Você pode ajustar conforme sua necessidade
+jobs:
+  gpt_integration:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+      - name: Install dependencies
+        run: |
+          pip install openai
+      - name: Run GPT integration script
+        run: |
+          python gpt_script.py
